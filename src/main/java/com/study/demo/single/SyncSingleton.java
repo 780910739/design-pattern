@@ -9,10 +9,10 @@ public class SyncSingleton {
 
     private static SyncSingleton Instance;
 
-    public static synchronized SyncSingleton getInstance(){
-        if(Instance==null){
-            synchronized(SyncSingleton.class){
-                Instance=new SyncSingleton();
+    public static SyncSingleton getInstance(){
+        synchronized(SyncSingleton.class){
+            if(Instance==null) {
+                Instance = new SyncSingleton();
             }
         }
         return Instance;
